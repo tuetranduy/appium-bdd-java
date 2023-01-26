@@ -1,6 +1,7 @@
 package org.tuetd.utils;
 
-import org.tuetd.core.managers.LoggingManager;
+import org.tuetd.enums.Platform;
+import org.tuetd.managers.LoggingManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +23,7 @@ public class PropertyUtils {
             propertiesFileName = propertiesFileName.trim();
 
             try {
-                inputStream = Files.newInputStream(Paths.get(userDir + "/src/test/resources/" + propertiesFileName));
+                inputStream = Files.newInputStream(Paths.get(userDir + "/src/test/resources/configuration-profiles/" + propertiesFileName));
                 properties.load(inputStream);
 
             } catch (Exception exception) {
@@ -75,5 +76,13 @@ public class PropertyUtils {
 
     public static String getPropertiesFiles() {
         return System.getProperty(Constants.PROPERTY_PROPERTIES_FILES, Constants.DEFAULT_PROPERTIES_FILES);
+    }
+
+    public static Platform getPlatform() {
+        return Platform.getPlatform(getProperty(Constants.PLATFORM_NAME_KEY));
+    }
+
+    public static Boolean isPlatform(Platform platformExpected) {
+        return getPlatform().equals(platformExpected);
     }
 }
