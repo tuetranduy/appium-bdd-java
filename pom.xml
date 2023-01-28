@@ -120,6 +120,11 @@
             <artifactId>logback-core</artifactId>
             <version>1.4.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.microsoft.appcenter</groupId>
+            <artifactId>appium-test-extension</artifactId>
+            <version>1.6</version>
+        </dependency>
     </dependencies>
 
     <build>
