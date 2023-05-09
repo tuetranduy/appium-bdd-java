@@ -67,7 +67,7 @@ public class MobileDriverManager {
         capabilities.setCapability(IOSMobileCapabilityType.WDA_LAUNCH_TIMEOUT, 500000);
 
         try {
-            driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+            driver = new IOSDriver(new URL(getAppiumUrl()), capabilities);
         } catch (MalformedURLException exception) {
             LoggingManager.logError(MobileDriverManager.class, "Error when creating iOS driver", exception);
         }
