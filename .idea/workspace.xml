@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="418f6c36-b340-489b-90e4-c8492c5aba83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/BaseTestNgTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/CucumberTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/AssertionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/RunCucumberTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/ClickUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/ClickUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,21 +63,28 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/bdd-selenium-automation-fw",
-    "project.structure.last.edited": "Facets",
+    "last_opened_file_path": "/Users/tuetran/Projects/appium-bdd-java/src/test/java/org/tuetd/runner",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "terminal"
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/org/tuetd/runner" />
+      <recent name="$PROJECT_DIR$/src/test/java/org/tuetd/utils" />
       <recent name="D:\appium-cucumber\src\test\java\org\tuetd\utils" />
       <recent name="D:\appium-cucumber\src\test\resources\apps" />
       <recent name="D:\appium-cucumber\src\test\resources\apps\android" />
-      <recent name="D:\appium-cucumber\src\test\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\appium-cucumber\src\test\resources\apps\android" />
@@ -84,32 +101,28 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Feature: example" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/example.feature" />
-      <option name="GLUE" value="org.tuetd" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+    <configuration name="ExampleTest" type="TestNG">
       <module name="appium-cucumber" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: example" />
-      <option name="VM_PARAMETERS" value="-DpropertiesFiles=android.local.properties" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="org.tuetd.runner" />
+      <option name="MAIN_CLASS_NAME" value="org.tuetd.runner.CucumberTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -DpropertiesFiles=android.local.properties" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Cucumber Java.Feature: example" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -119,8 +132,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674456310598</updated>
+      <workItem from="1683617087726" duration="331000" />
+      <workItem from="1683617694105" duration="56000" />
+      <workItem from="1683617802329" duration="62000" />
+      <workItem from="1683617884502" duration="661000" />
+      <workItem from="1683639706514" duration="513000" />
+      <workItem from="1683640238526" duration="24000" />
+      <workItem from="1683640274831" duration="25000" />
+      <workItem from="1683640312676" duration="22000" />
+      <workItem from="1683685243676" duration="4412000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -132,6 +157,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

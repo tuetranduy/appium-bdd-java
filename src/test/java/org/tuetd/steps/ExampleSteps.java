@@ -5,12 +5,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.tuetd.managers.LoggingManager;
 import org.tuetd.pages.ExamplePage;
 
 public class ExampleSteps {
 
     @Given("Click Press to make the number below random")
     public void clickFirstCheckbox() {
+
+        LoggingManager.logGiven(getClass(), "Click Press to make the number below random");
+
         ExamplePage examplePage = new ExamplePage();
 
         examplePage.clickFirstCheckbox();

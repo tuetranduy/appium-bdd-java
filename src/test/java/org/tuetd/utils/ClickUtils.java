@@ -10,12 +10,20 @@ import org.tuetd.managers.MobileDriverManager;
 public class ClickUtils {
 
     public static void click(Class<?> className, By locator, String errorMessage) {
-        WebElement element = MobileDriverManager.getMobileDriver().findElement(locator);
-        element.click();
+        try {
+            WebElement element = MobileDriverManager.getMobileDriver().findElement(locator);
+            element.click();
+        } catch (Exception exception) {
+            LoggingManager.logError(className, errorMessage, exception);
+        }
     }
 
     public static void click(Class<?> className, WebElement element, String errorMessage) {
-        element.click();
+        try {
+            element.click();
+        } catch (Exception exception) {
+            LoggingManager.logError(className, errorMessage, exception);
+        }
     }
 
     public static void waitUntilClickable(Class<?> className, WebElement element, String errorMessage) {
@@ -35,5 +43,4 @@ public class ClickUtils {
             LoggingManager.logError(className, errorMessage, exception);
         }
     }
-
 }

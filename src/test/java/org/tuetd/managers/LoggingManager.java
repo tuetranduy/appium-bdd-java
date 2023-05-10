@@ -2,6 +2,7 @@ package org.tuetd.managers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 
 public class LoggingManager {
     private static Logger getLogger(Class<?> className) {
@@ -18,6 +19,41 @@ public class LoggingManager {
 
     public static void logError(Class<?> className, String message, Exception exception) {
         getLogger(className).error(message, exception);
+    }
+
+    public static void logPass(Class<?> className, String message) {
+        getLogger(className).info(message);
+        ReportManager.reportPass(message);
+    }
+
+    public static void logFail(Class<?> className, String message) {
+        getLogger(className).error(message);
+        ReportManager.reportFail(message);
+        Assert.fail(message);
+    }
+
+    public static void logGiven(Class<?> className, String step) {
+        String message = "Given " + step;
+        getLogger(className).info(message);
+        ReportManager.createGiven(message);
+    }
+
+    public static void logWhen(Class<?> className, String step) {
+        String message = "When " + step;
+        getLogger(className).info(message);
+        ReportManager.createWhen(message);
+    }
+
+    public static void logThen(Class<?> className, String step) {
+        String message = "Then " + step;
+        getLogger(className).info(message);
+        ReportManager.createThen(message);
+    }
+
+    public static void logAnd(Class<?> className, String step) {
+        String message = "And " + step;
+        getLogger(className).info(message);
+        ReportManager.createAnd(message);
     }
 
 }
