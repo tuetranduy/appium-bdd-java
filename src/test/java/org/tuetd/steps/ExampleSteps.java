@@ -4,9 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.tuetd.managers.LoggingManager;
 import org.tuetd.pages.ExamplePage;
+import org.tuetd.utils.AssertionUtils;
 
 public class ExampleSteps {
 
@@ -22,6 +22,9 @@ public class ExampleSteps {
 
     @When("Click Press to simulate additional differences")
     public void clickSecondCheckbox() {
+
+        LoggingManager.logWhen(getClass(), "Click Press to simulate additional differences");
+
         ExamplePage examplePage = new ExamplePage();
 
         examplePage.clickSecondCheckbox();
@@ -29,6 +32,9 @@ public class ExampleSteps {
 
     @And("Click ClickMe button")
     public void clickClickMeButton() {
+
+        LoggingManager.logAnd(getClass(), "Click ClickMe button");
+
         ExamplePage examplePage = new ExamplePage();
 
         examplePage.clickClickMeButton();
@@ -36,9 +42,12 @@ public class ExampleSteps {
 
     @Then("Image should show up")
     public void verifyImageShowedUp() {
+
+        LoggingManager.logThen(getClass(), "Image should show up");
+
         ExamplePage examplePage = new ExamplePage();
 
-        Assert.assertTrue(examplePage.isImageDisplayed());
+        AssertionUtils.assertTrue(getClass(), examplePage.isImageDisplayed(), "Image should be displayed");
     }
 
 }

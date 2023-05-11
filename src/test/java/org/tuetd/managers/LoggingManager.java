@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
+import java.io.File;
+
 public class LoggingManager {
     private static Logger getLogger(Class<?> className) {
         return LoggerFactory.getLogger(className);
@@ -54,6 +56,10 @@ public class LoggingManager {
         String message = "And " + step;
         getLogger(className).info(message);
         ReportManager.createAnd(message);
+    }
+
+    public static void addScreenshot(File screenshot) {
+        ReportManager.addScreenshot(screenshot);
     }
 
 }

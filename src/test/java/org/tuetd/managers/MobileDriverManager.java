@@ -5,6 +5,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.SessionId;
 import org.tuetd.enums.Platform;
@@ -12,6 +15,7 @@ import org.tuetd.utils.Constants;
 import org.tuetd.utils.PropertyUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -128,5 +132,31 @@ public class MobileDriverManager {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    public static File getScreenshot() {
+        File screenshotFile;
+
+        try {
+            AppiumDriver appiumDriver = getMobileDriver();
+            File screenshotSource = ((TakesScreenshot) appiumDriver).getScreenshotAs(OutputType.FILE);
+
+            String screenshotFilePath = PropertyUtils.getProperty("user.dir") + File.separator;
+            screenshotFilePath += "test-output" + File.separator;
+            screenshotFilePath += "extent-reports" + File.separator;
+            screenshotFilePath += "screenshots" + File.separator;
+
+            String reportName = "Appium Test Report";
+            screenshotFilePath += reportName + "_";
+            screenshotFilePath += System.currentTimeMillis() + ".png";
+
+            screenshotFile = new File(screenshotFilePath);
+            org.apache.commons.io.FileUtils.copyFile(screenshotSource, screenshotFile);
+
+        } catch (IOException exception) {
+            throw new RuntimeException("Unable to take screenshot", exception);
+        }
+
+        return screenshotFile;
     }
 }

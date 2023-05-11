@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="418f6c36-b340-489b-90e4-c8492c5aba83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/BaseTestNgTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/CucumberTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/AssertionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="418f6c36-b340-489b-90e4-c8492c5aba83" name="Changes" comment="update framework">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/runner/RunCucumberTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/ClickUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/ClickUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,8 +134,16 @@
       <workItem from="1683640238526" duration="24000" />
       <workItem from="1683640274831" duration="25000" />
       <workItem from="1683640312676" duration="22000" />
-      <workItem from="1683685243676" duration="4412000" />
+      <workItem from="1683685243676" duration="7264000" />
     </task>
+    <task id="LOCAL-00001" summary="update framework">
+      <created>1683703888739</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683703888739</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,26 +160,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="update framework" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

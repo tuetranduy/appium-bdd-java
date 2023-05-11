@@ -16,7 +16,7 @@ public class ReportManager {
     private static final String BROWSER = PropertyUtils.getPlatform().name;
     private static final String OUTPUT_DIR = "test-output";
     private static final String REPORTS_DIR = "extent-reports";
-    private static final String REPORTS_NAME = "Unsplash Test Report";
+    private static final String REPORTS_NAME = "Appium Test Report";
     private static final String SCREENSHOTS_DIR = "screenshots";
     private static final String USER_DIR = PropertyUtils.getProperty("user.dir");
     private static ExtentSparkReporter reporter;

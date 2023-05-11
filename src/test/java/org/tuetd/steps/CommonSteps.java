@@ -21,6 +21,7 @@ public class CommonSteps {
 
     @After
     public static void tearDown(Scenario scenario) {
+        addScreenshotToScenario(scenario);
         tearDownMobileDriver();
         tearDownScenario(scenario);
     }
@@ -60,7 +61,7 @@ public class CommonSteps {
 
         try {
             Object[] currentTestParameters = Reporter.getCurrentTestResult().getParameters();
-            featureName = currentTestParameters[1].toString().replaceAll("(^\"Optional\\[|\\]\"$)", "");
+            featureName = currentTestParameters[1].toString().replaceAll("(^\"Optional\\[|]\"$)", "");
 
         } catch (Exception exception) {
             LoggingManager.logError(CommonSteps.class, "Unable to parse feature (check for syntax errors)", exception);
@@ -89,6 +90,14 @@ public class CommonSteps {
         } else if (scenarioFailed(scenario)) {
             LoggingManager.logFail(CommonSteps.class, featureName + " > " + scenarioName + " > " + scenarioStatus);
 
+        }
+    }
+
+    private static void addScreenshotToScenario(Scenario scenario) {
+        if (scenarioPassed(scenario) || scenarioFailed(scenario)) {
+            if (MobileDriverManager.isDriverSessionActive()) {
+                LoggingManager.addScreenshot(MobileDriverManager.getScreenshot());
+            }
         }
     }
 
