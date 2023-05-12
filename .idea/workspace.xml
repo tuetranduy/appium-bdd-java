@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="418f6c36-b340-489b-90e4-c8492c5aba83" name="Changes" comment="update framework">
+    <list default="true" id="418f6c36-b340-489b-90e4-c8492c5aba83" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/configuration-profiles/ios.browserstack.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/LoggingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/enums/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/enums/Platform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/MobileDriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/managers/ReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/CommonSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/steps/ExampleSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tuetd/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/configuration-profiles/android.local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/configuration-profiles/android.local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/configuration-profiles/ios.local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/configuration-profiles/ios.local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "/Users/tuetran/Projects/appium-bdd-java/src/test/java/org/tuetd/runner",
+    "last_opened_file_path": "D:/appium-bdd-java/src/test/resources/configuration-profiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,11 +75,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\appium-bdd-java\src\test\resources\configuration-profiles" />
       <recent name="$PROJECT_DIR$/src/test/java/org/tuetd/runner" />
       <recent name="$PROJECT_DIR$/src/test/java/org/tuetd/utils" />
       <recent name="D:\appium-cucumber\src\test\java\org\tuetd\utils" />
       <recent name="D:\appium-cucumber\src\test\resources\apps" />
-      <recent name="D:\appium-cucumber\src\test\resources\apps\android" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\appium-cucumber\src\test\resources\apps\android" />
@@ -154,7 +155,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

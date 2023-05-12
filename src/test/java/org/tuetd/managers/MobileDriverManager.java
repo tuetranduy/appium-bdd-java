@@ -7,7 +7,6 @@ import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.SessionId;
 import org.tuetd.enums.Platform;
@@ -24,9 +23,12 @@ public class MobileDriverManager {
     private static final String PLATFORM_VERSION = PropertyUtils.getProperty(Constants.PLATFORM_VERSION_KEY);
     private static final String PLATFORM_NAME = PropertyUtils.getProperty(Constants.PLATFORM_NAME_KEY);
     private static final String DEVICE_NAME = PropertyUtils.getProperty(Constants.DEVICE_NAME_KEY);
-    private static final String IOS_APP_NAME = "APP_NAME";
-    private static final String ANDROID_APP_NAME = PropertyUtils.getProperty(Constants.ANDROID_APP_NAME_KEY);
-    private static final String AUTOMATION_NAME = PropertyUtils.getProperty(Constants.ANDROID_AUTOMATION_NAME_KEY);
+    private static final String APP_NAME = PropertyUtils.getProperty(Constants.APP_NAME);
+    private static final String AUTOMATION_NAME = PropertyUtils.getProperty(Constants.AUTOMATION_NAME);
+    private static final String BS_ACCESS_KEY = PropertyUtils.getProperty(Constants.BS_ACCESS_KEY);
+    private static final String BS_USERNAME = PropertyUtils.getProperty(Constants.BS_USERNAME);
+    private static final String BS_SERVER = PropertyUtils.getProperty(Constants.BS_SERVER);
+    private static final String BS_APP_URL = PropertyUtils.getProperty(Constants.BS_APP_URL);
 
     private static final ThreadLocal<AppiumDriver> mobileDrivers = new ThreadLocal<>();
 
@@ -66,7 +68,7 @@ public class MobileDriverManager {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM_NAME);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AUTOMATION_NAME);
-        capabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath(IOS_APP_NAME));
+        capabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath(APP_NAME));
 
         capabilities.setCapability(IOSMobileCapabilityType.WDA_LAUNCH_TIMEOUT, 500000);
 
@@ -89,12 +91,35 @@ public class MobileDriverManager {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, PLATFORM_VERSION);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AUTOMATION_NAME);
-        capabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath("android" + File.separator + ANDROID_APP_NAME));
+        capabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath("android" + File.separator + APP_NAME));
 
         try {
             driver = new AndroidDriver(new URL(getAppiumUrl()), capabilities);
         } catch (MalformedURLException exception) {
             LoggingManager.logError(MobileDriverManager.class, "Error when creating Android driver", exception);
+        }
+
+        return driver;
+    }
+
+    public static IOSDriver createBrowserStackIOSDriver() {
+        LoggingManager.logInfo(MobileDriverManager.class, "=====> Creating new BrowserStack iOS driver ===");
+
+        IOSDriver driver = null;
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, PLATFORM_VERSION);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM_NAME);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AUTOMATION_NAME);
+        capabilities.setCapability(MobileCapabilityType.APP, BS_APP_URL);
+
+        capabilities.setCapability(IOSMobileCapabilityType.WDA_LAUNCH_TIMEOUT, 500000);
+
+        try {
+            driver = new IOSDriver(new URL("http://" + BS_USERNAME + ":" + BS_ACCESS_KEY + "@" + BS_SERVER + "/wd/hub"), capabilities);
+        } catch (MalformedURLException exception) {
+            LoggingManager.logError(MobileDriverManager.class, "Error when creating BrowserStack iOS driver", exception);
         }
 
         return driver;
@@ -120,8 +145,8 @@ public class MobileDriverManager {
     }
 
     private static String getAppiumUrl() {
-        String url = PropertyUtils.getProperty(Constants.ANDROID_APPIUM_URL_KEY);
-        String port = PropertyUtils.getProperty(Constants.ANDROID_APPIUM_PORT_KEY);
+        String url = PropertyUtils.getProperty(Constants.APPIUM_URL);
+        String port = PropertyUtils.getProperty(Constants.APPIUM_PORT);
 
         return url + ":" + port + "/wd/hub";
     }

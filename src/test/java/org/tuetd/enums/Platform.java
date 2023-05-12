@@ -5,7 +5,9 @@ import java.util.Arrays;
 public enum Platform {
 
     IOS("ios"),
-    ANDROID("android");
+    IOS_BS("ios_bs"),
+    ANDROID("android"),
+    ANDROID_BS("android_bs");
 
     public final String name;
 
