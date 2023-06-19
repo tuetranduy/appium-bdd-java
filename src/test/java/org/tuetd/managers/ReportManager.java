@@ -18,7 +18,7 @@ public class ReportManager {
     private static final String REPORTS_DIR = "extent-reports";
     private static final String REPORTS_NAME = "Appium Test Report";
     private static final String SCREENSHOTS_DIR = "screenshots";
-    private static final String USER_DIR = PropertyUtils.getProperty("user.dir");
+    private static final String USER_DIR = System.getProperty("user.dir");
     private static ExtentSparkReporter reporter;
     private static ExtentReports report;
     private static final ConcurrentHashMap<String, ExtentTest> features = new ConcurrentHashMap<>();

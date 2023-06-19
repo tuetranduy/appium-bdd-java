@@ -16,9 +16,10 @@ public class PropertyUtils {
 
     public static INIConfiguration loadIniFile() {
         Configurations configs = new Configurations();
+        String userDir = System.getProperty("user.dir");
         try {
-            String userDir = PropertyUtils.getProperty("user.dir");
-            return configs.ini(userDir + "/src/test/resources/configurations/config.ini");
+
+            return configs.ini(Paths.get(userDir + "/src/test/resources/configurations/config.ini").toFile());
         } catch (Exception exception) {
             LoggingManager.logError(PropertyUtils.class, "Unable to load Ini File", exception);
         }
@@ -28,7 +29,7 @@ public class PropertyUtils {
 
     public static Properties loadPropertiesFiles(String propertiesFiles) {
         Properties properties = new Properties();
-        String userDir = PropertyUtils.getProperty("user.dir");
+        String userDir = System.getProperty("user.dir");
         InputStream inputStream = null;
         String[] allPropertiesFiles = propertiesFiles.split(",");
 
@@ -68,38 +69,38 @@ public class PropertyUtils {
         return "";
     }
 
-    public static String getProperty(String propertyKey) {
+//    public static String getProperty(String propertyKey) {
+//
+//        loadIniFile();
+//
+//        String propertyValueFromFile = null;
+//
+//        try {
+//            propertyValueFromFile = PROPERTIES_FILES.getProperty(propertyKey);
+//
+//        } catch (Exception exception) {
+//            LoggingManager.logDebug(PropertyUtils.class, "Property '" + propertyKey + "'" + " does not exist in any of the properties files: '" + getPropertiesFiles() + "'");
+//        }
+//
+//        String propertyValueFromSystem = System.getProperty(propertyKey, propertyValueFromFile);
+//        LoggingManager.logDebug(PropertyUtils.class, propertyKey + " = " + propertyValueFromSystem);
+//        return propertyValueFromSystem;
+//    }
 
-        loadIniFile();
-
-        String propertyValueFromFile = null;
-
-        try {
-            propertyValueFromFile = PROPERTIES_FILES.getProperty(propertyKey);
-
-        } catch (Exception exception) {
-            LoggingManager.logDebug(PropertyUtils.class, "Property '" + propertyKey + "'" + " does not exist in any of the properties files: '" + getPropertiesFiles() + "'");
-        }
-
-        String propertyValueFromSystem = System.getProperty(propertyKey, propertyValueFromFile);
-        LoggingManager.logDebug(PropertyUtils.class, propertyKey + " = " + propertyValueFromSystem);
-        return propertyValueFromSystem;
-    }
-
-    public static String getProperty(String propertyKey, String defaultValue) {
-        String propertyValueFromFile = defaultValue;
-
-        try {
-            propertyValueFromFile = PROPERTIES_FILES.getProperty(propertyKey, defaultValue);
-
-        } catch (Exception exception) {
-            LoggingManager.logDebug(PropertyUtils.class, "Property '" + propertyKey + "'" + " does not exist in any of the properties files: '" + getPropertiesFiles() + "'");
-        }
-
-        String propertyValueFromSystem = System.getProperty(propertyKey, propertyValueFromFile);
-        LoggingManager.logDebug(PropertyUtils.class, propertyKey + " = " + propertyValueFromSystem);
-        return propertyValueFromSystem;
-    }
+//    public static String getProperty(String propertyKey, String defaultValue) {
+//        String propertyValueFromFile = defaultValue;
+//
+//        try {
+//            propertyValueFromFile = PROPERTIES_FILES.getProperty(propertyKey, defaultValue);
+//
+//        } catch (Exception exception) {
+//            LoggingManager.logDebug(PropertyUtils.class, "Property '" + propertyKey + "'" + " does not exist in any of the properties files: '" + getPropertiesFiles() + "'");
+//        }
+//
+//        String propertyValueFromSystem = System.getProperty(propertyKey, propertyValueFromFile);
+//        LoggingManager.logDebug(PropertyUtils.class, propertyKey + " = " + propertyValueFromSystem);
+//        return propertyValueFromSystem;
+//    }
 
     public static String getPropertiesFiles() {
         return System.getProperty(Constants.PROPERTY_PROPERTIES_FILES, Constants.DEFAULT_PROPERTIES_FILES);
@@ -113,6 +114,6 @@ public class PropertyUtils {
         return getProfile().equals(profileExpected);
     }
 
-    private static final Properties PROPERTIES_FILES = PropertyUtils.loadPropertiesFiles(getPropertiesFiles());
+//    private static final Properties PROPERTIES_FILES = PropertyUtils.loadPropertiesFiles(getPropertiesFiles());
 
 }
