@@ -96,7 +96,7 @@ $ carthage update
 ```
 
 ### Step 5: Set up environment:
-- Drag the built binary of Applitools's SDK, that you want to work with(EyesXCUI.framework, EyesEarlGrey.framework, EyesImages.framework), from Carthage/Build/<platform> into your application’s Xcode project.
+- Drag the built binary of Applitools's SDK, that you want to work with(EyesXCUI.framework, EyesEarlGrey.framework, EyesImages.framework), from Carthage/Build/<profile> into your application’s Xcode project.
 - On your application targets’ Build Phases settings tab, click the + icon and choose New Run Script Phase. Create a Run Script in which you specify your shell (ex: /bin/sh), add the following contents to the script area below the shell:
 ```bash
 /usr/local/bin/carthage copy-frameworks

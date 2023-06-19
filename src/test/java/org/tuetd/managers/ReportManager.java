@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ReportManager {
-    private static final String BROWSER = PropertyUtils.getPlatform().name;
+    private static final String BROWSER = PropertyUtils.getProfile().name;
     private static final String OUTPUT_DIR = "test-output";
     private static final String REPORTS_DIR = "extent-reports";
     private static final String REPORTS_NAME = "Appium Test Report";

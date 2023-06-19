@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.source            = { :http => 'https://applitools.bintray.com/iOS/<%= name %>/<%= options['version'] %>/<%= name %>-<%= options['version'] %>.zip' }
 
-  s.platform          = :ios
+  s.profile          = :ios
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
 

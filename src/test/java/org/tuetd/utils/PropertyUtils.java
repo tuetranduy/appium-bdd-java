@@ -1,6 +1,9 @@
 package org.tuetd.utils;
 
-import org.tuetd.enums.Platform;
+import org.apache.commons.configuration2.INIConfiguration;
+import org.apache.commons.configuration2.SubnodeConfiguration;
+import org.apache.commons.configuration2.builder.fluent.Configurations;
+import org.tuetd.enums.Profile;
 import org.tuetd.managers.LoggingManager;
 
 import java.io.IOException;
@@ -11,7 +14,17 @@ import java.util.Properties;
 
 public class PropertyUtils {
 
-    private static final Properties PROPERTIES_FILES = PropertyUtils.loadPropertiesFiles(getPropertiesFiles());
+    public static INIConfiguration loadIniFile() {
+        Configurations configs = new Configurations();
+        try {
+            String userDir = PropertyUtils.getProperty("user.dir");
+            return configs.ini(userDir + "/src/test/resources/configurations/config.ini");
+        } catch (Exception exception) {
+            LoggingManager.logError(PropertyUtils.class, "Unable to load Ini File", exception);
+        }
+
+        return null;
+    }
 
     public static Properties loadPropertiesFiles(String propertiesFiles) {
         Properties properties = new Properties();
@@ -44,7 +57,21 @@ public class PropertyUtils {
         return properties;
     }
 
+    public static String getIniProperty(String sectionName, String propertyKey) {
+        INIConfiguration ini = loadIniFile();
+
+        if (ini != null) {
+            SubnodeConfiguration section = ini.getSection(sectionName);
+            return section.getString(propertyKey);
+        }
+
+        return "";
+    }
+
     public static String getProperty(String propertyKey) {
+
+        loadIniFile();
+
         String propertyValueFromFile = null;
 
         try {
@@ -78,11 +105,14 @@ public class PropertyUtils {
         return System.getProperty(Constants.PROPERTY_PROPERTIES_FILES, Constants.DEFAULT_PROPERTIES_FILES);
     }
 
-    public static Platform getPlatform() {
-        return Platform.getPlatform(getProperty(Constants.PLATFORM_NAME_KEY));
+    public static Profile getProfile() {
+        return Profile.getProfile(getIniProperty("common", "profile"));
     }
 
-    public static Boolean isPlatform(Platform platformExpected) {
-        return getPlatform().equals(platformExpected);
+    public static Boolean isProfile(Profile profileExpected) {
+        return getProfile().equals(profileExpected);
     }
+
+    private static final Properties PROPERTIES_FILES = PropertyUtils.loadPropertiesFiles(getPropertiesFiles());
+
 }

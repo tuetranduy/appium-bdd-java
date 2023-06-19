@@ -9,7 +9,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.SessionId;
-import org.tuetd.enums.Platform;
+import org.tuetd.enums.Profile;
+import org.tuetd.models.Capabilities;
 import org.tuetd.utils.Constants;
 import org.tuetd.utils.PropertyUtils;
 
@@ -58,22 +59,22 @@ public class MobileDriverManager {
         return sessionId;
     }
 
-    public static IOSDriver createIOSDriver() {
+    public static IOSDriver createIOSDriver(Capabilities capabilities) {
         LoggingManager.logInfo(MobileDriverManager.class, "=== Creating new iOS driver ===");
 
         IOSDriver driver = null;
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, PLATFORM_VERSION);
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM_NAME);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AUTOMATION_NAME);
-        capabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath(APP_NAME));
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, capabilities.getPlatformVersion());
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, capabilities.getPlatformName());
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, capabilities.getDeviceName());
+        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capabilities.getAutomationName());
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, getAppAbsolutePath(capabilities.getAppName()));
 
-        capabilities.setCapability(IOSMobileCapabilityType.WDA_LAUNCH_TIMEOUT, 500000);
+        desiredCapabilities.setCapability(IOSMobileCapabilityType.WDA_LAUNCH_TIMEOUT, 500000);
 
         try {
-            driver = new IOSDriver(new URL(getAppiumUrl()), capabilities);
+            driver = new IOSDriver(new URL(getAppiumUrl()), desiredCapabilities);
         } catch (MalformedURLException exception) {
             LoggingManager.logError(MobileDriverManager.class, "Error when creating iOS driver", exception);
         }
@@ -126,11 +127,15 @@ public class MobileDriverManager {
     }
 
     public static void createMobileDriver() {
-        if (PropertyUtils.isPlatform(Platform.IOS)) {
-            IOSDriver driver = createIOSDriver();
+        if (PropertyUtils.isProfile(Profile.LOCAL_IOS)) {
+            Capabilities capabilities = new Capabilities(Profile.LOCAL_IOS.name);
+            IOSDriver driver = createIOSDriver(capabilities);
             setMobileDrivers(driver);
-        } else if (PropertyUtils.isPlatform(Platform.ANDROID)) {
+        } else if (PropertyUtils.isProfile(Profile.LOCAL_ANDROID)) {
             AndroidDriver driver = createAndroidDriver();
+            setMobileDrivers(driver);
+        } else if (PropertyUtils.isProfile(Profile.BROWSERSTACK_IOS)) {
+            IOSDriver driver = createBrowserStackIOSDriver();
             setMobileDrivers(driver);
         }
     }
