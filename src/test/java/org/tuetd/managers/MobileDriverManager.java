@@ -11,7 +11,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.SessionId;
 import org.tuetd.enums.Profile;
 import org.tuetd.models.Capabilities;
-import org.tuetd.utils.Constants;
 import org.tuetd.utils.PropertyUtils;
 
 import java.io.File;
