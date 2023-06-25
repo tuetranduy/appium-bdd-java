@@ -1,5 +1,6 @@
 package org.tuetd.pages;
 
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +15,7 @@ public class BasePage {
     }
 
     private void initializePageElements() {
-        PageFactory.initElements(MobileDriverManager.getMobileDriver(), this);
+        PageFactory.initElements(new AppiumFieldDecorator(MobileDriverManager.getMobileDriver()), this);
     }
 
     public BasePage click(WebElement element, String errorMessage) {

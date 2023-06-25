@@ -1,20 +1,21 @@
 package org.tuetd.pages;
 
+import io.appium.java_client.pagefactory.AndroidBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ExamplePage extends BasePage {
 
-    @FindBy(id = "com.applitools.helloworld.android:id/random_number_check_box")
+    @AndroidBy(id = "com.applitools.helloworld.android:id/random_number_check_box")
     WebElement firstCheckbox;
 
-    @FindBy(id = "com.applitools.helloworld.android:id/simulate_diffs_check_box")
+    @AndroidBy(id = "com.applitools.helloworld.android:id/simulate_diffs_check_box")
     WebElement secondCheckbox;
 
-    @FindBy(id = "com.applitools.helloworld.android:id/click_me_btn")
+    @AndroidBy(id = "com.applitools.helloworld.android:id/click_me_btn")
     WebElement clickMeBtn;
 
-    @FindBy(id = "com.applitools.helloworld.android:id/image")
+    @AndroidBy(id = "com.applitools.helloworld.android:id/image")
     WebElement image;
 
     public void clickFirstCheckbox() {
